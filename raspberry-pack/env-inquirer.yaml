@@ -1,0 +1,20 @@
+environmentVars:
+  - type: input
+    name: DOCKER_RUN_OPTIONS
+    message: "options to run the image with (e.g. -d -p 80:80)"
+    default: ""
+
+  - type: input
+    name: DOCKER_RUN_IMAGE
+    message: "specify the image (e.g. alpine)"
+    default: ""
+
+  - type: input
+    name: DOCKER_RUN_COMMAND
+    message: "command to run in container (e.g. bash)"
+    default: ""
+
+  - type: input
+    name: DOCKER_RUN_ARGUMENTS
+    message: "arguments for the command docker run"
+    default: ""
