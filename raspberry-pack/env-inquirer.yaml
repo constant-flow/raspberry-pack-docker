@@ -1,5 +1,10 @@
 environmentVars:
   - type: input
+    name: DOCKER_FILES_GIT
+    message: "Provide a repo-url where the files are located, this Dockerfile might use."
+    default: ""
+
+  - type: input
     name: DOCKER_RUN_OPTIONS
     message: "options to run the image with (e.g. -d -p 80:80)"
     default: ""
