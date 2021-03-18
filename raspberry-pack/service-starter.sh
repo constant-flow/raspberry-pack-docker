@@ -13,4 +13,4 @@ then
 fi
 
 # run specified image with options, a command and its arguments
-sudo docker run --rm $DOCKER_RUN_OPTIONS $DOCKER_RUN_IMAGE $DOCKER_RUN_COMMAND $DOCKER_RUN_ARGUMENTS
+sudo docker run --rm $DOCKER_RUN_PARAMETERS

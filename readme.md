@@ -10,12 +10,8 @@ This image allows to install docker on a Raspberry Pi. The image that will run i
 ## How to run docker with this
 
 - First you can provide a url to a repository. Here you can put all files that can be used by the Dockerfile `DOCKER_FILES_GIT`. They will be created in `/home/pi/dockerfiles`.
-- After this the packages runs the `docker run [A] [B] [D] [C]` command where:
-  - `[A]` = `DOCKER_RUN_OPTIONS`: are the options to run the image with (e.g. `-d -p 80:80`)
-  - `[B]` = `DOCKER_RUN_IMAGE`: is the image you want to run (e.g. `alpine`)
-  - `[C]` = `DOCKER_RUN_COMMAND`: is the command you want to run in the container (e.g. `bash`)
-  - `[D]` = `DOCKER_RUN_ARGUMENTS`: are the parameters to the command you run (e.g `--posix`)
-- `[A]` - `[D]` can be specified in the Raspberry-Pack wizard after you added this package
+- After this the packages runs the `docker run --rm [A]` command where:
+  - `[A]` = `DOCKER_RUN_PARAMETERS`: are the options to run the image with (e.g. `-d -p 80:80 alpine`)
 
 ## Example: Host a static website with Apache from a git repo (containing website only)
 
@@ -33,8 +29,5 @@ docker run -dit --name my-apache-app -p 80:80 -v "/home/pi/dockerfiles/":/usr/lo
 
 You can reach the same result by answering the questions:
 
-- **Provide a repo-url where the files are located, this Dockerfile might use** : `https://github.com/[user-or-group]/[project-with-static-website]`
-- **options to run the image with (e.g. -d -p 80:80)** : `-dit --name my-apache-app -p 80:80 -v "/home/pi/dockerfiles/":/usr/local/apache2/htdocs/`
-- **specify the image (e.g. alpine)** : `httpd:2.4-alpine`
-- **command to run in container (e.g. bash)** : ``
-- **arguments for the command docker run** : ``
+- **Provide a repo-url where the files are located which you can mount** : `https://github.com/[user-or-group]/[project-with-static-website]`
+- **What should docker run? Fill what is behind 'docker run --rm'** : `https://github.com/[user-or-group]/[project-with-static-website] --name my-app -p 80:80 -v "/home/pi/dockerfiles/":/usr/local/apache2/htdocs/ httpd:2.4-alpine`

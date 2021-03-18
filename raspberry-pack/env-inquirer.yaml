@@ -1,25 +1,10 @@
 environmentVars:
   - type: input
     name: DOCKER_FILES_GIT
-    message: "Provide a repo-url where the files are located, this Dockerfile might use."
+    message: "Provide a repo-url where the files are located which you can mount."
     default: ""
 
   - type: input
-    name: DOCKER_RUN_OPTIONS
-    message: "options to run the image with (e.g. -d -p 80:80)"
-    default: ""
-
-  - type: input
-    name: DOCKER_RUN_IMAGE
-    message: "specify the image (e.g. alpine)"
-    default: ""
-
-  - type: input
-    name: DOCKER_RUN_COMMAND
-    message: "command to run in container (e.g. bash)"
-    default: ""
-
-  - type: input
-    name: DOCKER_RUN_ARGUMENTS
-    message: "arguments for the command docker run"
-    default: ""
+    name: DOCKER_RUN_PARAMETERS
+    message: "What should docker run? Fill what is behind 'docker run --rm': Options, Image, Command, Command parameters.\nsee https://docs.docker.com/engine/reference/run/\n(e.g. --name my-app -p 80:80 -v "/home/pi/dockerfiles/":/usr/local/apache2/htdocs/ httpd:2.4-alpine)"
+    default: "alpine"
