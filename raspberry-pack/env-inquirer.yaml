@@ -1,13 +1,13 @@
 environmentVars:
   - type: input
     name: DOCKER_FILES_GIT
-    message: "Provide a repo-url where the files are located which you can mount."
+    message: "DOCKER_FILES_GIT: Provide a repo-url where the files are located (Dockerfile and/or assets)."
     default: ""
 
   - type: input
-    name: DOCKER_RUN_PARAMETERS
+    name: DOCKER_COMMANDS
     message: |-
-      What should docker run? Fill what is behind "docker run --rm": Options, Image, Command, Command parameters.
+      DOCKER_COMMANDS: What commands shall be executed. e.g. sudo docker build ...;sudo docker run --rm ...
       reference https://docs.docker.com/engine/reference/run/
-      example: --name my-app -p 80:80 -v "/home/pi/dockerfiles/":/usr/local/apache2/htdocs/ httpd:2.4-alpine
-    default: "alpine"
+      example: sudo docker build -t build-image /home/pi/dockerfiles; sudo docker run --rm -p 80:80 build-image
+    default: ""
